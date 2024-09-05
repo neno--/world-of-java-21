@@ -1,38 +1,25 @@
 package com.github.nenomm.woj21;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class T003_SwitchStatementTest {
+class T004_RecordTest {
 
   @Test
-  public void arrowStyle() {
-    Integer randomCode = (int) (Math.random() * Integer.MAX_VALUE);
-
-    if (randomCode > 1000) {
-      randomCode = null;
-    }
-
-    int result;
-
-    switch (randomCode) {
-      case null -> result = 0;
-      case 1 -> {
-        int c = 45;
-        result = 3;
+  public void coordsAreFine() {
+    record Point(int x, int y) {
+      public Point {
+        // compact constructor comes before the canonical
+        x = x + 1;
       }
-      case 4 -> result = 5;
-      default -> result = 6;
+
+      public Point(int x) {
+        this(x, x);
+        int v = 23;
+      }
     }
 
-    assertThat(result, allOf(greaterThanOrEqualTo(0), lessThanOrEqualTo(10)));
-
-    // Avoid the fallthrough forms. It is very uncommon to need fallthrough.
-    // Prefer switch expressions over statements.
-
+    assertEquals(2, (new Point(1,10)).x());
   }
 }

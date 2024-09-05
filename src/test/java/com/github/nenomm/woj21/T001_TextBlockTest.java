@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class T001_TextBlocksTest {
+class T001_TextBlockTest {
 
   @Test
   public void simpleTextBlock() {

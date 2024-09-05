@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.lessThanOrEqualTo;
 
 import org.junit.jupiter.api.Test;
 
-class T002_SwitchExpressionsTest {
+class T002_SwitchExpressionTest {
 
   @Test
   public void arrowStyle() {
@@ -23,7 +23,6 @@ class T002_SwitchExpressionsTest {
         yield 2;
       }
       case 4 -> 3;
-
       default -> 5;
     };
 
@@ -50,7 +49,6 @@ class T002_SwitchExpressionsTest {
       }
       case x:
         yield 3;
-
       default:
         yield 5;
     };

@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -56,5 +57,16 @@ class T002_SwitchExpressionTest {
     assertThat(result, allOf(greaterThanOrEqualTo(0), lessThanOrEqualTo(10)));
   }
 
+  private String type(Object o) {
+    return switch (o) {
+      case null -> "null";
+      case Object _ -> "object";
+      // default -> "wait what?";
+    };
+  }
 
+  @Test
+  public void caseTestsClasses() {
+    assertEquals("object", type(new Object()));
+  }
 }
